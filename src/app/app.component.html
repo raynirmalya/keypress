@@ -8,9 +8,20 @@
   <div class="col-12">
     <h3>All Active KeyPress </h3>
     <div *ngFor="let item of sharedService.allActiveEvents | keyvalue">
-      <div> Component Name: {{item.key}}</div>
-      <div *ngFor="let val of item.value">
-        {{val.keyCombo}}
+      <div *ngIf="sharedService.allActiveEvents[item.key].length > 0"> Component Name: {{item.key}}</div>
+      <div *ngIf="sharedService.allActiveEvents[item.key].length > 0">
+        <table class="table tbl-responsive">
+          <thead>
+            <tr>
+              <th> Shortcut Name</th><th> Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let val of item.value">
+              <td>{{val.keyCombo}}</td><td>Turns the components background to {{val.color}}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

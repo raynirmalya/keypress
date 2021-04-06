@@ -4,7 +4,7 @@ export interface KeypressEvents <T>{
 
 export interface KeypressEvt {
   keyCombo: string;
-  color?: string;
+  color: string;
   description: string;
 }
 

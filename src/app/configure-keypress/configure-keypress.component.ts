@@ -24,8 +24,9 @@ export class ConfigureKeypressComponent implements OnInit {
   public callback($evt, i: number) {
     if( $evt ) {
       const color = this.sharedService.allActiveEvents[this.cmpName][i] && this.sharedService.allActiveEvents[this.cmpName][i].color ? this.sharedService.allActiveEvents[this.cmpName][i].color : 'black';
+      this.sharedService.allActiveEvents[this.cmpName][i].description = `Turns the components background to ${color}`;
       this.getColor.emit({ color ,
-       index: i, description: `Turns the components background to ${color}`});
+       index: i, description: this.sharedService.allActiveEvents[this.cmpName][i].description});
     }
   }
 }
