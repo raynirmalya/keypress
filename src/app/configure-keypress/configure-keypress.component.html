@@ -1,0 +1,17 @@
+<div class="col-12">
+  <button (click)="add()" class="btn btn-primary">Add</button>
+</div>
+<ng-container *ngFor="let evt of sharedService.allActiveEvents[cmpName]; let i = index">
+  <div class="m-4">
+    <div class="col-4 d-inline-block" >
+      <input  class="form-control" [(ngModel)]="evt.keyCombo" [name]="'keyCombo-' + cmpName + i" placeholder="key combo"/>
+    </div>
+    <div class="col-4 d-inline-block" >
+      <input class="form-control" [(ngModel)]="evt.color" [name]="'color-' + cmpName + i" placeholder="key combo"/>
+    </div>
+    <div class="col-4 d-inline-block" >
+      <button (click)="remove(i)" class="btn btn-primary">remove</button>
+    </div>
+    <app-keyboard-shortcut [combo]="evt.keyCombo" (callback)="callback($event, i)"></app-keyboard-shortcut>
+  </div>
+</ng-container>

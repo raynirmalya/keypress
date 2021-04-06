@@ -1,0 +1,17 @@
+
+<div class="container-fluid m-4">
+  <div class="col-12">
+    <div class="col-4 d-inline-block va-t"><app-a></app-a></div>
+    <div class="col-4 d-inline-block va-t"><app-b></app-b></div>
+    <div class="col-4 d-inline-block va-t"><app-c></app-c></div>
+  </div>
+  <div class="col-12">
+    <h3>All Active KeyPress </h3>
+    <div *ngFor="let item of sharedService.allActiveEvents | keyvalue">
+      <div> Component Name: {{item.key}}</div>
+      <div *ngFor="let val of item.value">
+        {{val.keyCombo}}
+      </div>
+    </div>
+  </div>
+</div>
